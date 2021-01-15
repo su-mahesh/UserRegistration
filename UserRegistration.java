@@ -25,10 +25,9 @@ class UserRegistration{
 	}
 	
 	public static void main(String args[]){
+	
 		UserRegistration UserReg = new UserRegistration();
 		
-		UserReg.setFirstName();
-		
-		
+		UserReg.setFirstName();		
 	}
 }
