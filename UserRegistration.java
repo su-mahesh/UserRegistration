@@ -10,16 +10,14 @@ class UserRegistration{
 	
 	String firstLastNamePattern = "[A-Z][a-z]{2}[a-z]*";
 	String emailPattern = "[A-Za-z0-9_][A-Za-z0-9_.]{5,64}[@][A-Za-z0-9-]{2,}[.][A-Za-z]{1,63}([.][A-Za-z]{2})?";
+	String mobileNumberPattern = "^[1-9][0-9]{0,2}\\s[0-9]{10}";
 	
 	Scanner sc = new Scanner(System.in);
 	
 	public boolean checkName(String str){	
 	
 	return Pattern.matches(firstLastNamePattern, str) ? true : false;
-		//	if(Pattern.matches(firstLastNamePattern, str))
-	//			retun true;
-		//	else
-			//	return false;						
+					
 	}
 	
 	public void setFirstName(){		
@@ -70,6 +68,26 @@ class UserRegistration{
 		}				
 	}
 	
+	public void setMobileNumber(){
+	
+		boolean flag = true;				
+		String str;
+		
+		while(flag){
+					
+				System.out.println("Enter mobile number");
+				str = sc.nextLine();;					
+			
+			if(!Pattern.matches(mobileNumberPattern, str)){
+				flag = true;
+				System.out.println("wrong input\n");
+			}
+			else
+				flag = false;			 
+		}			
+	
+	}
+	
 	public static void main(String args[]){
 	
 		UserRegistration UserReg = new UserRegistration();
@@ -77,6 +95,7 @@ class UserRegistration{
 		UserReg.setFirstName();
 		UserReg.setLastName();
 		UserReg.setEmail();
+		UserReg.setMobileNumber();
 			
 	}
 }
