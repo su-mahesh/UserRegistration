@@ -7,18 +7,17 @@ class UserRegistration{
 	private String email;
 	String str = " ";
 	boolean check = true;
-	
+	Scanner sc = new Scanner(System.in);
+
 	private String firstLastNamePattern = "[A-Z][a-z]{2}[a-z]*";
 	private String emailPattern = "[A-Za-z0-9_][A-Za-z0-9_.]{5,64}[@][A-Za-z0-9-]{2,}[.][A-Za-z]{1,63}([.][A-Za-z]{2})?";
 	private String mobileNumberPattern = "^[1-9][0-9]{0,2}\\s[0-9]{10}";
-	private String passwordPattern = "[a-zA-Z]{8,}";
-	
-	Scanner sc = new Scanner(System.in);
+	private String passwordPattern = "(?=.*[A-Z])[A-Za-z]{8,20}";
+
 	
 	public boolean checkName(String str){	
 	
-	return Pattern.matches(firstLastNamePattern, str) ? true : false;
-					
+	return Pattern.matches(firstLastNamePattern, str) ? true : false;					
 	}
 	
 	public void setFirstName(){		
@@ -88,6 +87,7 @@ class UserRegistration{
 		}			
 	
 	}
+	
 	public void setPassword(){
 			
 		boolean flag = true;				
