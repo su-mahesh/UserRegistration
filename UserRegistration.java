@@ -8,9 +8,10 @@ class UserRegistration{
 	String str = " ";
 	boolean check = true;
 	
-	String firstLastNamePattern = "[A-Z][a-z]{2}[a-z]*";
-	String emailPattern = "[A-Za-z0-9_][A-Za-z0-9_.]{5,64}[@][A-Za-z0-9-]{2,}[.][A-Za-z]{1,63}([.][A-Za-z]{2})?";
-	String mobileNumberPattern = "^[1-9][0-9]{0,2}\\s[0-9]{10}";
+	private String firstLastNamePattern = "[A-Z][a-z]{2}[a-z]*";
+	private String emailPattern = "[A-Za-z0-9_][A-Za-z0-9_.]{5,64}[@][A-Za-z0-9-]{2,}[.][A-Za-z]{1,63}([.][A-Za-z]{2})?";
+	private String mobileNumberPattern = "^[1-9][0-9]{0,2}\\s[0-9]{10}";
+	private String passwordPattern = "[a-zA-Z]{8,}";
 	
 	Scanner sc = new Scanner(System.in);
 	
@@ -30,7 +31,7 @@ class UserRegistration{
 				check = false;
 			}
 			else
-				System.out.println("wrong format");				
+				System.out.println("wrong format\n");				
 		}
 		check = true;
 	}
@@ -61,7 +62,7 @@ class UserRegistration{
 			
 			if(!Pattern.matches(emailPattern, str)){
 				flag = true;
-				System.out.println("wrong input");
+				System.out.println("wrong format\n");
 			}
 			else
 				flag = false;			 
@@ -80,7 +81,26 @@ class UserRegistration{
 			
 			if(!Pattern.matches(mobileNumberPattern, str)){
 				flag = true;
-				System.out.println("wrong input\n");
+				System.out.println("wrong format\n");
+			}
+			else
+				flag = false;			 
+		}			
+	
+	}
+	public void setPassword(){
+			
+		boolean flag = true;				
+		String str;
+		
+		while(flag){
+					
+				System.out.println("Enter password");
+				str = sc.nextLine();;					
+			
+			if(!Pattern.matches(passwordPattern, str)){
+				flag = true;
+				System.out.println("wrong format\n");
 			}
 			else
 				flag = false;			 
@@ -96,6 +116,7 @@ class UserRegistration{
 		UserReg.setLastName();
 		UserReg.setEmail();
 		UserReg.setMobileNumber();
+		UserReg.setPassword();
 			
 	}
 }
