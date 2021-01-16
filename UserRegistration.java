@@ -16,10 +16,7 @@ class UserRegistration{
 	public boolean checkName(String str){	
 	
 	return Pattern.matches(firstLastNamePattern, str) ? true : false;
-		//	if(Pattern.matches(firstLastNamePattern, str))
-	//			retun true;
-		//	else
-			//	return false;						
+					
 	}
 	
 	public void setFirstName(){		
