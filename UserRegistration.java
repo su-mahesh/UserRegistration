@@ -10,9 +10,9 @@ class UserRegistration{
 	Scanner sc = new Scanner(System.in);
 
 	private String firstLastNamePattern = "[A-Z][a-z]{2}[a-z]*";
-	private String emailPattern = "[A-Za-z0-9_][A-Za-z0-9_.]{5,64}[@][A-Za-z0-9-]{2,}[.][A-Za-z]{1,63}([.][A-Za-z]{2})?";
+	private String emailPattern = "[A-Za-z0-9_][+A-Za-z0-9_-]*[.]?[+A-Za-z0-9_-]+[@]([A-Za-z0-9]{1,}[.][A-Za-z]{2,63}|[A-Za-z0-9-]{2,}[.][A-Za-z0-9]{2,63}[.][A-Za-z]{2,3})";
 	private String mobileNumberPattern = "^[1-9][0-9]{0,2}\\s[0-9]{10}";
-	private String passwordPattern = "(?=.*[A-Z])(?=.*[^A-Za-z0-9]{1})(?=.*\\d)[A-Za-z0-9[^A-Za-z0-9]]{8,20}";
+	private String passwordPattern = "^(?=.{8,20}$)(?=.*[0-9])(?=.*[A-Z])[A-Za-z0-9]*[^A-Za-z0-9][A-Za-z0-9]*$";
 	
 	public boolean checkName(String str){
 	
