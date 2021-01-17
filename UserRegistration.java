@@ -7,12 +7,10 @@ class UserRegistration{
 	private String email;
 	String str = " ";
 	boolean check = true;
-	
+	Scanner sc = new Scanner(System.in);	
 	String firstLastNamePattern = "[A-Z][a-z]{2}[a-z]*";
-	String emailPattern = "[A-Za-z0-9_][A-Za-z0-9_.]{5,64}[@][A-Za-z0-9-]{2,}[.][A-Za-z]{1,63}([.][A-Za-z]{2})?";
-	
-	Scanner sc = new Scanner(System.in);
-	
+	String emailPattern = "[A-Za-z0-9_][+A-Za-z0-9_-]*[.]?[+A-Za-z0-9_-]+[@]([A-Za-z0-9]{1,}[.][A-Za-z]{2,63}|[A-Za-z0-9-]{2,}[.][A-Za-z0-9]{2,63}[.][A-Za-z]{2,3})";
+		
 	public boolean checkName(String str){	
 	
 	return Pattern.matches(firstLastNamePattern, str) ? true : false;
@@ -66,7 +64,7 @@ class UserRegistration{
 				flag = false;			 
 		}				
 	}
-	
+
 	public static void main(String args[]){
 	
 		UserRegistration UserReg = new UserRegistration();
@@ -74,6 +72,6 @@ class UserRegistration{
 		UserReg.setFirstName();
 		UserReg.setLastName();
 		UserReg.setEmail();
-			
+
 	}
 }
