@@ -14,6 +14,32 @@ class UserRegistration{
 	private String mobileNumberPattern = "^[1-9][0-9]{0,2}\\s[0-9]{10}";
 	private String passwordPattern = "^(?=.{8,20}$)(?=.*[0-9])(?=.*[A-Z])[A-Za-z0-9]*[^A-Za-z0-9][A-Za-z0-9]*$";
 	
+	String[] emailAcceptList = new String[]{"abc@yahoo.com",
+	"abc-100@yahoo.com",
+	"abc.100@yahoo.com",
+	"abc111@abc.com", 
+	"abc-100@abc.net",
+	"abc.100@abc.com.au",
+	"abc@1.com",
+	"abc@gmail.com.com",
+	"abc+100@gmail.com"};
+	
+	String[] emailRejectList = new String[]{
+	"abc",
+	"abc@.com.my",
+	"abc123@gmail.a",
+	"abc123@.com",
+	"abc123@.com.com",
+	".abc@abc.com",
+	"abc()*@gmail.com",
+	"abc@%*.com",
+	"abc..2002@gmail.com",
+	"abc.@gmail.com",
+	"abc@abc@gmail.com",
+	"abc@gmail.com.1a",
+	"abc@gmail.com.aa.au"
+	};
+	
 	public boolean checkName(String str){
 	
 	return Pattern.matches(firstLastNamePattern, str) ? true : false;					
@@ -106,6 +132,34 @@ class UserRegistration{
 		}			
 	
 	}
+	public void clearEmailList(){	
+		int i = 0;
+		System.out.println("\n***must accept list***");
+		
+		for(i = 0; i < emailAcceptList.length; i++ ){
+			
+				System.out.println((i+1)+": "+emailAcceptList[i]);
+			if(Pattern.matches(emailPattern, emailAcceptList[i])){	
+							
+				System.out.println("pattern matched\n");
+			}
+			else
+				System.out.println("pattern did not matched\n");	
+		}
+	
+		System.out.println("***must reject list***");
+		
+		for( i = 0; i < emailRejectList.length; i++ ){
+			
+				System.out.println((i+1)+": "+emailRejectList[i]);			
+			if(Pattern.matches(emailPattern, emailRejectList[i])){
+							
+				System.out.println("pattern matched\n");
+			}
+			else
+				System.out.println("pattern did not matched\n");	
+		}
+	}	
 	
 	public static void main(String args[]){
 	
@@ -116,6 +170,7 @@ class UserRegistration{
 		UserReg.setEmail();
 		UserReg.setMobileNumber();
 		UserReg.setPassword();
+		UserReg.clearEmailList();
 			
 	}
 }
